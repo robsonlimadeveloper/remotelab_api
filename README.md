@@ -1,47 +1,47 @@
 ## REMOTELAB (API)
 
-## Proposição de Layout
+# Proposição de Layout
 
 Baseada no Framework Flask, a aplicação aqui contida desenvolve algumas
 funcionalidades para acesso ao banco de dados e criação de modelos e migrações
 
-## 1 - Instalação do Docker && Docker Compose no Raspberry Pi
+# 1 - Instalação do Docker && Docker Compose no Raspberry Pi
 
 ```sh
 curl -sSL https://get.docker.com | sh
 ```
 
-# Add permission to Pi User to run Docker Commands
+## Add permission to Pi User to run Docker Commands
 
 ```sh
 sudo usermod -aG docker pi && sudo reboot
 
 ```
 
-# Instalação de dependências
+## Instalação de dependências
 
 ```sh
 sudo apt-get install -y libffi-dev libssl-dev python3 python3-pip git && sudo apt-get remove python-configparser
 ```
-# Install Docker Compose
+## Install Docker Compose
 
 ```sh
 sudo pip3 -v install docker-compose
 ```
 
-## 2 - Clone o respositório
+# 2 - Clone o respositório
 
 ```sh
 sudo git clone https://github.com/robsonlimadeveloper/remotelab_api.git
 ```
 
-# Entre na pasta
+## Entre na pasta
 
 ```sh
 cd remotelab_api
 ```
 
-## 3 - Iniciando o ambiente de desenvolvimento
+# 3 - Iniciando o ambiente de desenvolvimento
 
 1. levantando o container
 
@@ -64,9 +64,9 @@ $ docker exec -it remotelab_dev_app bash
 @container $ flask seed
 ```
 
-## Extras
+# Extras
 
-# Acesso ao container do banco de dados
+## Acesso ao container do banco de dados
 ```sh
 $ docker exec -it remotelab_dev_db bash
 @container $ mysql -u root -p
@@ -74,13 +74,13 @@ $ docker exec -it remotelab_dev_db bash
 @container $ >password root
 ```
 
-# levantando container em modo debug
+## levantando container em modo debug
 
 ```sh
 $ docker-compose up
 ```
 
-# Para remover remover o banco e o seus dados
+## Para remover remover o banco e o seus dados
 
 ```sh
 $ docker rm remotelab_dev_db
