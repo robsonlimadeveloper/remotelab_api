@@ -14,13 +14,13 @@ services:
 
     db:
         container_name: remotelab_dev_db
-        image: microsoft/mssql-server-linux:2017-latest
+        image: hypriot/rpi-mysql:latest
         environment:
-            - ACCEPT_EULA=Y
+            - ACCEPT_EULA=Ys
         volumes:
-            - db_data:/var/opt/mssql/data
+            - db_data:/var/lib/mysql
         ports:
-            - "1433:1433"
+            - "3306:3306"
         env_file:
             - ./.env.dev
         restart: always

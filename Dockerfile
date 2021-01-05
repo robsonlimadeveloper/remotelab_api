@@ -1,14 +1,3 @@
-#FROM python:3.7.0-alpine3.7
-
-#EXPOSE 5000
-
-#WORKDIR /app
-
-#COPY requirements.txt /app
-#RUN pip install -r requirements.txt
-
-#COPY app.py /app
-#CMD python app.py
 
 FROM ubuntu:18.04
 
@@ -25,12 +14,6 @@ ENV PYTHONUNBUFFERED 1
 
 # install python packages dependencies
 RUN apt-get install -y unixodbc unixodbc-dev odbcinst sudo
-
-# install SQL server driver
-RUN apt-get install -y curl \
-  && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
-  && curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list \
-  && apt-get update && ACCEPT_EULA=Y apt-get install -y msodbcsql17
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/Recife
