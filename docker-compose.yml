@@ -1,0 +1,30 @@
+version: '3'
+services:
+    app:
+        build: .
+        container_name: remotelab_dev_app
+        volumes:
+            - ".:/root/app"
+            - "app_upload:/root/app/upload"
+        ports:
+            - "4010:4010"
+        env_file:
+            - ./.env.dev
+        restart: always
+
+    db:
+        container_name: remotelab_dev_db
+        image: microsoft/mssql-server-linux:2017-latest
+        environment:
+            - ACCEPT_EULA=Y
+        volumes:
+            - db_data:/var/opt/mssql/data
+        ports:
+            - "1433:1433"
+        env_file:
+            - ./.env.dev
+        restart: always
+
+volumes:
+    db_data:
+    app_upload:
