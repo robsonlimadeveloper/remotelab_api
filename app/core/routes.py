@@ -26,5 +26,5 @@ def index():
     links = app.url_map.iter_rules()
     for link in links:
         link_serializable.append(str(f"{link} {link.methods}"))
-        print(">>>>")
+        
     return jsonify(Rotas=link_serializable)

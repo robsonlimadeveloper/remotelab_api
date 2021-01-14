@@ -14,17 +14,22 @@ services:
 
     db:
         container_name: remotelab_dev_db
-        image: hypriot/rpi-mysql:latest
+        image: mysql:5.7
+        #image: hypriot/rpi-mysql:latest #If use in Raspberry Pi
+        command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
         environment:
             - ACCEPT_EULA=Ys
         volumes:
-            - db_data:/var/lib/mysql
+            #- db_data:/var/lib/mysql
+            - mysqlV:/var/lib/mysql
         ports:
             - "3306:3306"
         env_file:
             - ./.env.dev
         restart: always
+        
 
 volumes:
-    db_data:
+    #db_data:
+    mysqlV:
     app_upload:

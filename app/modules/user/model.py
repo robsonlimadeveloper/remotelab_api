@@ -1,5 +1,5 @@
 """This module refer User"""
-
+from datetime import date
 from app import db
 
 class User(db.Model):
@@ -11,6 +11,11 @@ class User(db.Model):
     username: str = db.Column(db.String(255), nullable=False)
     password: str = db.Column(db.String(255), nullable=False)
     email: str = db.Column(db.String(255), nullable=False)
+    password: str = db.Column(db.String(45), nullable=False)
+    phone: str = db.Column(db.String(45), nullable=False)
+    date_of_birth: date = db.Column(db.Date(), nullable=True)
+    is_active: bool = db.Column(db.Boolean, default=True, unique=False, nullable=False)
+    total_hours: int = db.Column(db.Integer)
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)

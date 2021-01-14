@@ -67,6 +67,18 @@ $ docker exec -it remotelab_dev_app bash
 # Extras
 
 ## Acesso ao container do banco de dados
+
+No Docker raspberry
+
+```sh
+$ docker exec -it remotelab_dev_db bash
+@container $ mysql -u root -p
+
+@container $ >password root
+```
+
+No Docker PC
+
 ```sh
 $ docker exec -it remotelab_dev_db bash
 @container $ mysql -u root -p
@@ -82,7 +94,16 @@ $ docker-compose up
 
 ## Para remover remover o banco e o seus dados
 
+No Docker raspberry
+
 ```sh
 $ docker rm remotelab_dev_db
 $ docker volume rm docker-flask_db_data
+```
+
+No Docker PC
+
+```sh
+$ docker rm remotelab_api_mysqlV
+$ docker volume rm remotelab_api_mysqlV
 ```
