@@ -7,7 +7,7 @@
 This enpoint return a Authorization Bearer Token to Access
 
 ```sh
-POST: 'http://localhost:4010/api/auth/'
+POST: 'http://45.233.12.76:4010/api/auth/'
 JSON:
 {
 	"username": "admin",
@@ -17,8 +17,10 @@ JSON:
 
 ## Create a new User
 
+This endpoint create a new User and return User created.
+
 ```sh
-POST: 'http://localhost:4010/api/users/'
+POST: 'http://45.233.12.76:4010/api/users/'
 JSON:
 {
     "name": "Test",
@@ -33,7 +35,9 @@ JSON:
 
 ## List all Users
 
+This endpoint return All Users Array
+
 ```sh
-GET: 'http://localhost:4010/api/users/'
+GET: 'http://45.233.12.76:4010/api/users/'
 
 ```
