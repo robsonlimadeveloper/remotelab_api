@@ -1,8 +1,21 @@
 
-# Basic Documentation RemoteLab API
+# (Temporary) Basic Documentation RemoteLab API
 
 
-## create a new User
+## Autentication
+
+This enpoint return a Authorization Bearer Token to Access
+
+```sh
+POST: 'http://localhost:4010/api/auth/'
+JSON:
+{
+	"username": "admin",
+    "password": "1234"
+}
+```
+
+## Create a new User
 
 ```sh
 POST: 'http://localhost:4010/api/users/'
@@ -15,9 +28,10 @@ JSON:
     "date_of_birth": "2021-01-12",
     "password": "1234"
 }
+
 ```
 
-## list all Users
+## List all Users
 
 ```sh
 GET: 'http://localhost:4010/api/users/'
