@@ -42,7 +42,7 @@ GET: 'http://189.126.106.53:4010/api/users/<user_id: int>'
 
 ```
 
-## Update a new User
+## Update a User by Id
 
 This endpoint update a User and return User updated.
 
