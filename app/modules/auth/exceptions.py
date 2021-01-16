@@ -1,7 +1,9 @@
+from http import HTTPStatus
+
 '''Auth Exception module'''
 class InvalidPasswordExceptions(Exception):
     '''Invalid password'''
-    status_code = 401
+    status_code = HTTPStatus.UNAUTHORIZED
     message = "Invalid Password"
 
     def __init__(self, message=None, status_code=None, payload=None):

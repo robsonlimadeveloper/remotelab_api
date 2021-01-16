@@ -6,7 +6,7 @@ from app.core.service_abstract import ServiceAbstract
 from .repository import UserRepository
 from .model import User
 from .exceptions import UserNotExistWithUsernameAndPasswordException,\
-    UserWithUsernameExistsException
+    UserWithUsernameExistsException, UserNotFoundException
 from .dto import UserPostDTO, UserUpdateDTO
 
 class UserService(ServiceAbstract):
@@ -58,3 +58,13 @@ class UserService(ServiceAbstract):
 
         return self.repository.update(user_id, User(**user_update_dto,\
              total_hours=user.total_hours, is_active=user.is_active))
+
+    def get_by_id(self, user_id: int) -> User:
+        """Return User by Id"""
+        user: User = self.repository.find_by_id(user_id)
+
+        if not user:
+            raise UserNotFoundException
+
+        return user
+        

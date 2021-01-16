@@ -42,13 +42,15 @@ class RepositoryAbstract:
         self.session.query(self.entity).filter(self.entity.id == entity_id).update(my_dict)
         self.session.commit()
 
+        model.id = entity_id
+
         return model
 
     def delete(self, model: db.Model) -> db.Model:
         """abstract function delete model"""
         self.session.delete(model)
         self.session.commit()
-
+        
         return model
 
     def find_last(self) -> db.Model:

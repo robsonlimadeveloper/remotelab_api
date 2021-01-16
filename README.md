@@ -3,7 +3,9 @@
 # Proposição de Layout
 
 Baseada no Framework Flask, a aplicação aqui contida desenvolve algumas
-funcionalidades para acesso ao banco de dados e criação de modelos e migrações
+funcionalidades para acesso ao banco de dados e criação de modelos e migrações.
+Abaixo os passos necessários para executar o banco de dados e o backend da aplicação
+localmente.
 
 # 1 - Instalação do Docker && Docker Compose no Raspberry Pi
 
@@ -97,13 +99,11 @@ $ docker-compose up
 No Docker raspberry
 
 ```sh
-$ docker rm remotelab_dev_db
+$ docker-compose down
 $ docker volume rm docker-flask_db_data
 ```
 
-No Docker PC
+## [Temporário] ENDPOINTS
 
-```sh
-$ docker rm remotelab_api_mysqlV
-$ docker volume rm remotelab_api_mysqlV
-```
+No arquivo endpoints.md há a lista de endpoints disponíveis até o momento.
+Esse arquivo será usando temporáriamente enquanto o Swagger Doc é implementado no sistema.

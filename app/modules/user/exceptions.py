@@ -11,3 +11,8 @@ class UserWithUsernameExistsException(ErrorAbstract):
     """Username exists in database"""
     status_code: int = HTTPStatus.NOT_ACCEPTABLE
     message: str = "Username already exists in our database.."
+
+class UserNotFoundException(ErrorAbstract):
+    """Username exists in database"""
+    status_code: int = HTTPStatus.NOT_FOUND
+    message: str = "User not exists in our database."
