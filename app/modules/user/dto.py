@@ -22,7 +22,7 @@ class UserPostDTO(Schema):
     date_of_birth: date = fields.Date()
     password: str = fields.String(validate=validate.Length(min=1), required=True, allow_none=False)
 
-class UserPutDTO(Schema):
+class UserUpdateDTO(Schema):
     '''User POST DTO'''
     name: str = fields.String(validate=validate.Length(min=1), required=True, allow_none=False)
     username: str = fields.String()

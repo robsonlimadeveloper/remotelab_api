@@ -13,7 +13,6 @@ for named_module in get_named_modules():
             f'.modules.{named_module}.views', package='app')
         app.register_blueprint(getattr(module, 'blueprint'))
     except ModuleNotFoundError as exception:
-        print("error")
         pass
     except Exception as exception:
         print(traceback.format_exc())

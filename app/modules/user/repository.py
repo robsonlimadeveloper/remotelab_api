@@ -12,8 +12,9 @@ class UserRepository(RepositoryAbstract):
     
     def find_by_username_and_password(self, username: str, password: str) -> User:
         """Return user by username and password"""
-        return (self.session
-                .query(User)
-                .filter(User.username == username)
-                .filter(User.password == password)
-                .first())
+        return self.session.query(User).filter(User.username == username).\
+            filter(User.password == password).first()
+    
+    def find_by_username(self, username: str) -> User:
+        """Return User by username"""
+        return self.session.query(User).filter(User.username == username).first()

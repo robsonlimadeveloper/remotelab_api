@@ -7,7 +7,7 @@
 This enpoint return a Authorization Bearer Token to Access
 
 ```sh
-POST: 'http://45.233.12.76:4010/api/auth/'
+POST: 'http://189.126.106.53:4010/api/auth/'
 JSON:
 {
 	"username": "admin",
@@ -20,7 +20,25 @@ JSON:
 This endpoint create a new User and return User created.
 
 ```sh
-POST: 'http://45.233.12.76:4010/api/users/'
+POST: 'http://189.126.106.53:4010/api/users/'
+JSON:
+{
+    "name": "Test",
+    "username": "test",
+    "email": "test@test.com",
+    "phone": "(83) 99999-9999",
+    "date_of_birth": "2021-01-12",
+    "password": "1234"
+}
+
+```
+
+## Update a new User
+
+This endpoint update a User and return User updated.
+
+```sh
+PUT: 'http://189.126.106.53:4010/api/users/'
 JSON:
 {
     "name": "Test",
@@ -38,6 +56,6 @@ JSON:
 This endpoint return All Users Array
 
 ```sh
-GET: 'http://45.233.12.76:4010/api/users/'
+GET: 'http://189.126.106.53:4010/api/users/'
 
 ```
