@@ -33,12 +33,21 @@ JSON:
 
 ```
 
+## Get User by Id
+
+This endpoint return user by id.
+
+```sh
+GET: 'http://189.126.106.53:4010/api/users/<user_id: int>'
+
+```
+
 ## Update a new User
 
 This endpoint update a User and return User updated.
 
 ```sh
-PUT: 'http://189.126.106.53:4010/api/users/'
+PUT: 'http://189.126.106.53:4010/api/users/<user_id: int>'
 JSON:
 {
     "name": "Test",
