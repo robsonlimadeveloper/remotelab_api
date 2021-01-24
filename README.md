@@ -100,7 +100,7 @@ No Docker raspberry
 
 ```sh
 $ docker-compose down
-$ docker volume rm docker-flask_db_data
+$ docker volume rm remotelab_api_db_data
 ```
 
 ## [Temporário] ENDPOINTS

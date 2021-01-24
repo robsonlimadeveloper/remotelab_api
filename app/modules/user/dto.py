@@ -1,4 +1,4 @@
-'''User Substitute dto module'''
+'''User dto module'''
 from marshmallow import Schema, fields, validate
 from datetime import date
 
