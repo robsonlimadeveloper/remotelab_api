@@ -7,7 +7,7 @@
 This enpoint return a Authorization Bearer Token to Access
 
 ```sh
-POST: 'http://189.126.106.53:4010/api/auth/'
+POST: '/api/auth/'
 JSON:
 {
 	"username": "admin",
@@ -20,7 +20,7 @@ JSON:
 This endpoint create a new User and return User created.
 
 ```sh
-POST: 'http://189.126.106.53:4010/api/users/'
+POST: '/api/users/'
 JSON:
 {
     "name": "Test",
@@ -38,7 +38,7 @@ JSON:
 This endpoint return user by id.
 
 ```sh
-GET: 'http://189.126.106.53:4010/api/users/<user_id: int>'
+GET: '/api/users/<user_id: int>'
 
 ```
 
@@ -47,7 +47,7 @@ GET: 'http://189.126.106.53:4010/api/users/<user_id: int>'
 This endpoint update a User and return User updated.
 
 ```sh
-PUT: 'http://189.126.106.53:4010/api/users/<user_id: int>'
+PUT: '/api/users/<user_id: int>'
 JSON:
 {
     "name": "Test",
@@ -65,6 +65,60 @@ JSON:
 This endpoint return All Users Array
 
 ```sh
-GET: 'http://189.126.106.53:4010/api/users/'
+GET: '/api/users/'
+
+```
+
+## List all User Types
+
+This endpoint return All Users Types Array
+
+```sh
+GET: '/api/user-types/'
+
+```
+
+## Get User Type by Id
+
+This endpoint return User Type by id.
+
+```sh
+GET: '/api/user-types/<user_type_id: int>'
+
+```
+
+## List all Institutes
+
+This endpoint return All Institutes Array
+
+```sh
+GET: '/api/institutes/'
+
+```
+
+## Get Institute by Id
+
+This endpoint return Institute by id.
+
+```sh
+GET: '/api/institutes/<institute_id: int>'
+
+```
+
+## List all Experiments
+
+This endpoint return All Experiments Array
+
+```sh
+GET: '/api/experiments/'
+
+```
+
+## Get Experiment by Id
+
+This endpoint return Experiment by id.
+
+```sh
+GET: '/api/experiments/<experiment_id: int>'
 
 ```

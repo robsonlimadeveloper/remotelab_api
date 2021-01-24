@@ -7,4 +7,3 @@ class DisciplineTypeDTO(Schema):
     id: int = fields.Integer()
     name: str = fields.String()
     is_active: bool = fields.Boolean()
-    
