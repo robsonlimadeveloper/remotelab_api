@@ -31,4 +31,10 @@ def update(service: UserService, user_id: int):
     user_update_dto: UserUpdateDTO = UserUpdateDTO()
     return jsonify(user_dto.dump(service.update(\
         user_update_dto.load(request.json), user_id)))
+
+@blueprint.route('/<int:user_id>', methods=[HttpVerbENUM.DELETE.value])
+def remove_user_by_id(service: UserService, user_id: int):
+    """Enpoint - Remove user by id. """
+    
+    return jsonify(user_dto.dump(service.remove(user_id)))
         
