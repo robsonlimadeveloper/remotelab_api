@@ -1,5 +1,5 @@
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 # intall python
 RUN apt-get update \
@@ -20,8 +20,6 @@ ENV TZ=America/Recife
 RUN apt-get install -y tzdata
 
 WORKDIR /root/app
-
-RUN mkdir -p /root/app/upload
 
 COPY ./requirements.txt /root/app/requirements.txt
 RUN pip install -r requirements.txt

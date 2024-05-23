@@ -1,0 +1,268 @@
+{
+   "openapi": "3.0.1",
+   "info": {
+       "description": "Remotelab API",
+       "version": "1.0.0",
+       "title": "Remotelab-API",
+       "license": {
+           "name": "MIT",
+           "url": "https://opensource.org/licenses/MIT"
+       }
+   },
+   "servers": [
+       {
+           "url": "/"
+       }
+   ],
+   "security": [
+       {
+           "bearerAuth": []
+       }
+   ],
+   "paths": {
+       "/remotelab-api/auth/": {
+           "post": {
+               "requestBody": {
+                   "content": {
+                       "application/json": {
+                           "schema": {
+                               "properties": {
+                                   "password": {
+                                       "type": "string"
+                                   },
+                                   "username": {
+                                       "type": "string"
+                                   }
+                               },
+                               "type": "object"
+                           }
+                       }
+                   },
+                   "description": "User Login",
+                   "required": true
+               },
+               "responses": {
+                   "200": {
+                       "content": {
+                           "application/json": {
+                               "schema": {
+                                   "properties": {
+                                       "token": {
+                                           "type": "string"
+                                       }
+                                   },
+                                   "type": "object"
+                               }
+                           }
+                       },
+                       "description": "OK"
+                   },
+                   "401": {
+                       "content": {
+                           "$ref": "#/components/schemas/Error"
+                       },
+                       "description": "Username or password is incorrect."
+                   },
+                   "403": {
+                       "content": {
+                           "$ref": "#/components/schemas/Error"
+                       },
+                       "description": "User without access permission."
+                   },
+                   "404": {
+                       "content": {
+                           "$ref": "#/components/schemas/Error"
+                       },
+                       "description": "The user is not in our database."
+                   },
+                   "406": {
+                       "content": {
+                           "$ref": "#/components/schemas/Error"
+                       },
+                       "description": "Request to Auth Server return error."
+                   },
+                   "500": {
+                       "content": {
+                           "$ref": "#/components/schemas/Error"
+                       },
+                       "description": "Invalid server address."
+                   }
+               },
+               "security": [],
+               "summary": "Get JWT",
+               "tags": [
+                   "Application Auth"
+               ]
+           }
+       },
+       "/remotelab-api/users/": {
+           "get": {
+               "responses": {
+                   "200": {
+                       "content": {
+                           "application/json": {
+                               "schema": {
+                                 "items": {
+                                    "properties": {
+                                       "count_items": {
+                                           "type": "integer"
+                                       },
+                                       "count_total_pages": {
+                                           "type": "integer"
+                                       },
+                                       "next_page": {
+                                           "type": "integer"
+                                       },
+                                       "previous_page": {
+                                           "type": "integer"
+                                       },
+                                       "users": {
+                                           "items": {
+                                               "$ref": "#/components/schemas/UserList"
+                                           },
+                                           "type": "array"
+                                       }
+                                   },
+                                   "type": "object"
+                                },
+                                "type": "array"
+                                   
+                               }
+                           }
+                       },
+                       "description": "OK"
+                   },
+                   "401": {
+                       "$ref": "#/components/responses/UnauthorizedError"
+                   }
+               },
+               "summary": "Get all users",
+               "tags": [
+                   "Application Users"
+               ]
+           }
+       }
+   },
+   "components": {
+       "responses": {
+           "GreatherThenZeroError": {
+               "content": {
+                   "$ref": "#/components/schemas/Error"
+               },
+               "description": "Value must be greater than 0"
+           },
+           "InformationNotFound": {
+               "content": {
+                   "$ref": "#/components/schemas/Error"
+               },
+               "description": "Information not found."
+           },
+           "LessThenZeroError": {
+               "content": {
+                   "$ref": "#/components/schemas/Error"
+               },
+               "description": "Value must not be less than 0"
+           },
+           "UnauthorizedError": {
+               "description": "Authorization header not found"
+           },
+           "MaxFileSizeException": {
+               "description": "File larger than allowed."
+           },
+           "FileNotSentException": {
+               "description": "File not sent."
+           },
+           "AccessKeyNotSentForXmlException": {
+               "description": "Access Key Not Sent."
+           },
+           "InvalidXmlFormatException": {
+               "description": "Invalid xml format"
+           },
+           "WrongParameterException": {
+               "content": {
+                   "$ref": "#/components/schemas/Error"
+               },
+               "description": "Parameter does not exist"
+           },
+           "WrongValueParameterError": {
+               "content": {
+                   "$ref": "#/components/schemas/Error"
+               },
+               "description": "Parameter value is wrong"
+           }
+       },
+       "schemas": {
+         "Error": {
+            "application/json": {
+                "schema": {
+                    "properties": {
+                        "error": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        },
+         "UserList": {
+            "properties": {
+                  "id": {
+                     "type": "integer"
+                  },
+                  "name": {
+                     "type": "string"
+                  },
+                  "username": {
+                     "type": "string"
+                  },
+                  "is_active": {
+                     "type": "boolean"
+                  },
+                  "email": {
+                     "type": "string"
+                  },
+                  "phone": {
+                     "type": "string"
+                  },
+                  "date_of_birth": {
+                     "type": "string"
+                  },
+                  "total_hours": {
+                     "type": "integer"
+                  }
+            },
+            "type": "object"
+         },
+         "UserSingle": {
+            "properties": {
+                  "email": {
+                     "type": "string"
+                  },
+                  "id": {
+                     "type": "integer"
+                  },
+                  "is_active": {
+                     "type": "boolean"
+                  },
+                  "name": {
+                     "type": "string"
+                  },
+                  "phone": {
+                     "type": "string"
+                  },
+                  "username": {
+                     "type": "string"
+                  }
+            },
+            "type": "object"
+         }
+       },
+       "securitySchemes": {
+           "bearerAuth": {
+               "bearerFormat": "JWT",
+               "scheme": "bearer",
+               "type": "http"
+           }
+       }
+   }
+}

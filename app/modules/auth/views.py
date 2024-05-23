@@ -6,7 +6,6 @@ from .dto import AuthDTORequest
 auth_dto_request = AuthDTORequest()
 blueprint: Blueprint = Blueprint("auth", __name__, url_prefix="/api/auth")
 
-
 @blueprint.route("/", methods=["POST"])
 def login(service: AuthService):
     '''Login route'''

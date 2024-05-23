@@ -16,15 +16,26 @@ class Middleware:
         self.app = app
 
     def __call__(self, environ: dict, start_response):
-        #return self.app(environ, start_response) #No authentication
-
-        request: Request = Request(environ)
         
-        if request.path == "/api/auth/" \
+        request: Request = Request(environ)
+
+        exceptions_swagger: list = [
+            "/remotelab-api/swagger",
+            "/remotelab-api/swagger/",
+            "/remotelab-api/swagger/swagger-ui.css",
+            "/remotelab-api/swagger/swagger-ui-bundle.js",
+            "/remotelab-api/swagger/swagger-ui-standalone-preset.js",
+            "/remotelab-api/swagger/favicon-32x32.png",
+            "/remotelab-api/swagger/favicon-16x16.png",
+            "/static/swagger.json"
+        ]
+
+
+        if request.path in exceptions_swagger or request.path == "/remotelab-api/auth/" \
             or request.method == HttpVerbENUM.OPTIONS.value:
             return self.app(environ, start_response)
 
-        res: Response = Response(mimetype='text/json', status=HTTPStatus.UNAUTHORIZED)
+        res: Response = Response(mimetype='text', status=HTTPStatus.UNAUTHORIZED)
         authorization: str = request.headers.get('Authorization')
 
         if authorization and authorization is not None:

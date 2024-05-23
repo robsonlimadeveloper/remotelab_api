@@ -3,9 +3,9 @@ services:
     app:
         build: .
         container_name: remotelab_dev_app
+        hostname: localhost
         volumes:
             - ".:/root/app"
-            - "app_upload:/root/app/upload"
         ports:
             - "4010:4010"
         env_file:
@@ -14,22 +14,21 @@ services:
 
     db:
         container_name: remotelab_dev_db
-        image: mysql:5.7
-        #image: hypriot/rpi-mysql:latest #If use in Raspberry Pi
-        #command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
+        image: mariadb:latest
         environment:
-            - ACCEPT_EULA=Ys
+            MARIADB_USER: sa
+            MARIADB_PASSWORD: mariadbPW
+            MARIADB_ROOT_PASSWORD: mariadbrootPW
         volumes:
             - db_data:/var/lib/mysql
-            #- mysqlV:/var/lib/mysql
         ports:
             - "3306:3306"
+        expose:  
+            - 3306
+            - 33060
         env_file:
             - ./.env.dev
         restart: always
         
-
 volumes:
     db_data:
-    #mysqlV:
-    app_upload:
