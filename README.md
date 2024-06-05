@@ -3,7 +3,7 @@
 [![Python](https://badgen.net/badge/language/python/orange?icon=python)]()
 [![Flask](https://badgen.net/badge/framework/Flask/red?icon=)]()
 
-_**Simple example of Flask API using MVC architecture, the application contained here develops some
+_**Simple example of Flask API using microservices architecture, the application contained here develops some
 functionalities for accessing the database and creating models and migrations.
 Below are the steps required to run the database and the application backend
 locally._
@@ -34,7 +34,7 @@ $ docker exec -it remotelab_dev_app bash
 @container $ flask seed
 ```
 
-## Acesso ao container do banco de dados
+## Container database
 
 
 ```sh
@@ -47,4 +47,13 @@ $ docker exec -it remotelab_dev_db bash
 ## Swagger
 ```
 http://localhost:4010/remotelab-api/swagger/
+```
+
+## Run tests (unittest)
+
+```sh
+$ docker exec -it remotelab_dev_app bash
+
+@container $ python -m unittest discover -v
+
 ```
