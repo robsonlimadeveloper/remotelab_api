@@ -8,6 +8,18 @@ functionalities for accessing the database and creating models and migrations.
 Below are the steps required to run the database and the application backend
 locally._
 
+### Dependencies and Configuration
+
+This project uses several libraries and tools to facilitate the development and execution of the application. The main dependencies and their functions are listed below:
+
+1.  Flask: Web framework used to build the API.
+2.  SQLAlchemy: ORM (Object-Relational Mapper) used to interact with the PostgreSQL database.
+3.  marshmallow: simplified object serialization.
+4.  python-dotenv: Library to manage environment variables.
+5.  pymysql: Driver for MariaDB.
+6.  PyJwt: library which allows you to encode and decode JSON Web Tokens.
+11. unittest: Testing framework used for test-driven development (TDD).
+
 ### Prerequisites
 
 *_**[Docker and Docker-Compose](https://www.docker.com/products/docker-desktop/)**_ installed on the environment.*
