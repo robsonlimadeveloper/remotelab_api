@@ -1,24 +1,63 @@
-# RemoteLab API
+<h1 align="center">
+  <br>
+   RemoteLab API - Example
+  <br>
+</h1>
 
-[![Python](https://badgen.net/badge/language/python/orange?icon=python)]()
-[![Flask](https://badgen.net/badge/framework/Flask/red?icon=)]()
+<p align="center">  
+<img src="https://badgen.net/badge/language/python/yellow?icon=python">
+<img src="https://badgen.net/badge/framework/flask/pink?icon=">
+<img src="https://badgen.net/badge/orm/sqlalchemy/red?icon=">
+<img src="https://badgen.net/badge/database/mysql/blue?icon=">
+<img src="https://badgen.net/badge/tests/unittest/blue?icon=">
+</p>
+<p align="center">
+<a href='https://ko-fi.com/V7V717GRV1' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+</p>
 
-_**Simple example of Flask API using microservices architecture, the application contained here develops some
-functionalities for accessing the database and creating models and migrations.
-Below are the steps required to run the database and the application backend
-locally._
+<p align="justify">
+RemoteLab API is a simple RESTful API example built with Python using the Flask framework, SQLAlchemy as the ORM, and MariaDB as the database. The project is containerized with Docker and orchestrated with Docker Compose for easy deployment and development.
 
-### Dependencies and Configuration
+</p>
 
-This project uses several libraries and tools to facilitate the development and execution of the application. The main dependencies and their functions are listed below:
+<p><strong>Develop with:</strong></p>
 
-1.  Flask: Web framework used to build the API.
-2.  SQLAlchemy: ORM (Object-Relational Mapper) used to interact with the PostgreSQL database.
-3.  marshmallow: simplified object serialization.
-4.  python-dotenv: Library to manage environment variables.
-5.  pymysql: Driver for MariaDB.
-6.  PyJwt: library which allows you to encode and decode JSON Web Tokens.
-11. unittest: Testing framework used for test-driven development (TDD).
+<p align="left">
+	
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,flask,mysql,git,docker,vscode" />
+  </a>
+</p>
+
+## Features
+<p align="left">
+  
+- <strong>CRUD Operations:</strong> Create, read, update, and delete database records.
+
+- <strong>JWT Authentication:</strong> Secure authentication using JSON Web Tokens.
+
+- <strong>Data Validation:</strong> Ensures data integrity through model-defined validations.
+
+- <strong>API Documentation:</strong> Interactive API documentation provided with Swagger UI.
+</p>
+
+## Technologies Used
+
+<p align="left">
+<strong>Language:</strong> Python 3.8+
+
+<strong>Web Framework:</strong> Flask 1.1.2
+
+<strong>ORM:</strong> SQLAlchemy
+
+<strong>Database:</strong> MariaDB
+
+<strong>Containerization:</strong> Docker & Docker Compose
+</p>
+
+## Getting Started:
+
+Follow the steps below to set up and run the database and backend application locally.
 
 ### Prerequisites
 
